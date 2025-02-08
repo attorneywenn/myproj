@@ -1,3 +1,5 @@
+// Pambilang ko ito ng mga nakolekta kong pera pagkatapos kong bumyahe sa foodpanda
+
 #include <stdio.h>
 
 int main () {
