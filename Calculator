@@ -1,5 +1,60 @@
 #include <stdio.h>
-#include <string.h>
-#define TITLE "Calculator\n"
+
+float plus(float a, float b);
+float minus(float a, float b);
+float times(float a, float b);
+float dividedBy(float a, float b);
+int rem(int a, int b);
+float a, b;
 
 int main() {
+	int choice;
+	
+
+	do {
+		
+		printf("\nFirst number: ");
+		scanf("%f", &a);
+		printf("\nSecond number: ");
+		scanf("%f", &b);
+		printf("Choose operator:\n1. +\n2. -\n3. x\n4. /\n");
+		scanf("%d", &choice);
+	
+		switch (choice) {
+			case 1:
+				printf("Value: %.2f\n", plus(a, b));
+				break;
+			case 2:
+				printf("Value: %.2f\n", minus(a, b));
+				break;
+			case 3:
+				printf("Value: %.2f\n", times(a, b));
+				break;
+			case 4:
+				if (b!=0) {
+					printf("Value: %.2f r. %d\n", dividedBy(a, b), rem(a, b));
+				} else {
+					printf("Invalid. Please try again.\n");
+				}
+				break;
+			default:
+				printf("Invalid choice. \nPlease input operator again.\n");
+		} 
+	} while (choice < 1 || choice > 4 );
+}
+
+float plus(float a, float b) {
+	return a + b;
+}
+float minus(float a, float b) {
+	return a - b;
+}
+float times(float a, float b) {
+	return a * b;
+}
+float dividedBy(float a, float b) {
+	return a / b;
+}
+int rem(int a, int b) {
+	return a % b;
+}
