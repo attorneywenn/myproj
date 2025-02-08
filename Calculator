@@ -1,60 +1,76 @@
 #include <stdio.h>
 
-float plus(float a, float b);
-float minus(float a, float b);
-float times(float a, float b);
-float dividedBy(float a, float b);
-int rem(int a, int b);
-float a, b;
+double a, b;
+int value;
+double mathAdd (double a, double b);
+double mathSubtract (double a, double b);
+double mathMultiply (double a, double b);
+double mathDivide (double a, double b);
+int mathIntDivide (int a, int b);
+int mathRemainder (int a, int b);
 
-int main() {
-	int choice;
+int main () {
+	char choice;
 	
+	a = 5;
+	b = 10;
+	value = a, b;
 
-	do {
-		
-		printf("\nFirst number: ");
-		scanf("%f", &a);
-		printf("\nSecond number: ");
-		scanf("%f", &b);
-		printf("Choose operator:\n1. +\n2. -\n3. x\n4. /\n");
-		scanf("%d", &choice);
-	
-		switch (choice) {
-			case 1:
-				printf("Value: %.2f\n", plus(a, b));
-				break;
-			case 2:
-				printf("Value: %.2f\n", minus(a, b));
-				break;
-			case 3:
-				printf("Value: %.2f\n", times(a, b));
-				break;
-			case 4:
-				if (b!=0) {
-					printf("Value: %.2f r. %d\n", dividedBy(a, b), rem(a, b));
-				} else {
-					printf("Invalid. Please try again.\n");
-				}
-				break;
-			default:
-				printf("Invalid choice. \nPlease input operator again.\n");
-		} 
-	} while (choice < 1 || choice > 4 );
+	printf("===== Welcome to my Calculator! =====\n");
+	printf("=== Developed by: attywenn ===\n");
+		do {
+			printf("Input first number: ");
+			scanf(" %lf", &a);
+			printf("Input second number: ");
+			scanf(" %lf", &b);
+			
+
+			printf("Pick your operator (+, -, *, /): ");
+			scanf(" %c", &choice);
+
+			switch (choice) {
+				case '+':
+					printf("Value: %.2lf\n", mathAdd(a, b));
+					mathAdd(a, b);
+					break;
+				case '-':
+					printf("Value: %.2lf\n", mathSubtract(a,b));
+					mathSubtract(a, b);
+					break;
+				case '*':
+					printf("Value: %.2lf\n", mathMultiply(a, b));
+					mathMultiply(a, b);
+					break;
+				case '/':
+					printf("Value: %.2lf\vValue: %d r. %d", mathDivide(a, b), mathIntDivide(a, b), mathRemainder(a, b));
+					mathDivide(a, b);
+					mathRemainder(a, b);
+					break;
+			} 
+		} while (choice != '+' && '-' && '*' && '/');
+	return 0;	
 }
 
-float plus(float a, float b) {
+double mathAdd (double a, double b) {
 	return a + b;
 }
-float minus(float a, float b) {
+
+double mathSubtract (double a, double b) {
 	return a - b;
 }
-float times(float a, float b) {
+
+double mathMultiply (double a, double b) {
 	return a * b;
 }
-float dividedBy(float a, float b) {
+
+double mathDivide (double a, double b) {
 	return a / b;
 }
-int rem(int a, int b) {
+
+int mathRemainder (int a, int b) {
 	return a % b;
+}
+
+int mathIntDivide (int a, int b) {
+	return a / b;
 }
